@@ -20,3 +20,8 @@ Options -Indexes
 <Files "sw.js">
   Header set Cache-Control "no-cache"
 </Files>
+
+# Keep the landing page and its stylesheet fresh on mobile and desktop browsers.
+<FilesMatch "^(index\.html|style\.css)$">
+  Header set Cache-Control "no-cache, no-store, must-revalidate"
+</FilesMatch>
