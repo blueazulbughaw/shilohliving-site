@@ -3,7 +3,8 @@
 Static HTML/CSS/JS site for https://shilohliving.app. No build step.
 
 The rental management app is a **separate repo** (`shilohliving`) and lives at
-https://hub.shilohliving.app — the "Login" button links there.
+https://hub.shilohliving.app — the "Login" button links there. Its local checkout is
+`../shilohliving.app` (read its `CLAUDE.md` for how the app is hosted and deployed).
 
 ## Where it runs
 
