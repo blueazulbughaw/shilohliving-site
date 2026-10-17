@@ -1,0 +1,22 @@
+# BEGIN Shiloh app redirects - the app lives at hub.shilohliving.app
+# Old emails/bookmarks still point at shilohliving.app; keep these rules.
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteCond %{QUERY_STRING} (^|&)(type=(reset|verify)|register=tenant) [NC]
+RewriteRule ^$ https://hub.shilohliving.app/ [R=302,L]
+RewriteRule ^api/(.*)$ https://hub.shilohliving.app/api/$1 [R=307,L]
+
+# Force HTTPS
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1 [R=301,L]
+</IfModule>
+# END Shiloh app redirects
+
+DirectoryIndex index.html
+ErrorDocument 404 /404.html
+Options -Indexes
+
+# Don't let browsers cache the service worker, so its update is always picked up.
+<Files "sw.js">
+  Header set Cache-Control "no-cache"
+</Files>
